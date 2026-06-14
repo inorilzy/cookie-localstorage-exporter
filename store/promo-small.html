@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie LocalStorage Exporter Promo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 440px;
+        height: 280px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(84, 135, 221, 0.45), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(23, 124, 88, 0.3), transparent 32%),
+          linear-gradient(180deg, #111827 0%, #0b1017 100%);
+      }
+
+      .canvas {
+        position: relative;
+        width: 440px;
+        height: 280px;
+      }
+
+      .icon-wrap {
+        position: absolute;
+        left: 52px;
+        top: 48px;
+        width: 152px;
+        height: 152px;
+        display: grid;
+        place-items: center;
+        border-radius: 38px;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 22px 44px rgba(0, 0, 0, 0.32);
+      }
+
+      .icon-wrap img {
+        width: 128px;
+        height: 128px;
+        display: block;
+      }
+
+      .bar {
+        position: absolute;
+        right: 52px;
+        height: 18px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #5ea2ff 0%, #3d7dee 100%);
+        box-shadow: 0 10px 22px rgba(43, 104, 208, 0.28);
+      }
+
+      .bar::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 48px;
+        top: 5px;
+        bottom: 5px;
+        border-radius: 999px;
+        background: rgba(220, 236, 255, 0.88);
+      }
+
+      .bar.one {
+        top: 84px;
+        width: 132px;
+      }
+
+      .bar.two {
+        top: 130px;
+        width: 162px;
+      }
+
+      .bar.three {
+        top: 176px;
+        width: 112px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <div class="icon-wrap">
+        <img src="../icons/icon-128.png" alt="">
+      </div>
+      <div class="bar one"></div>
+      <div class="bar two"></div>
+      <div class="bar three"></div>
+    </main>
+  </body>
+</html>
