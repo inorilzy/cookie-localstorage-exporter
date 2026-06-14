@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie LocalStorage Exporter</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="site-card">
+        <img id="siteFavicon" class="site-favicon" alt="" hidden>
+        <div class="site-meta">
+          <p class="eyebrow">Active tab</p>
+          <h1 id="siteTitle" class="site-title">Loading...</h1>
+          <p id="siteHost" class="site-host">-</p>
+        </div>
+      </header>
+
+      <section class="intro">
+        <p class="intro-line">Only reads the active tab after you click.</p>
+        <p class="intro-line muted">Read this site to capture Cookies and localStorage keys, then Copy session JSON.</p>
+      </section>
+
+      <section id="statusBox" class="status info" role="status">
+        Ready to inspect the active tab.
+      </section>
+
+      <section class="actions">
+        <button id="authorizeButton" class="button button-primary" type="button" hidden>Read this site</button>
+        <button id="retryButton" class="button" type="button" hidden>Retry</button>
+        <button id="copyButton" class="button" type="button" disabled>Copy session JSON</button>
+      </section>
+
+      <section class="summary">
+        <div class="summary-item">
+          <span class="summary-label">Cookies</span>
+          <span id="cookieCount" class="summary-value">0</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">localStorage keys</span>
+          <span id="storageCount" class="summary-value">0</span>
+        </div>
+      </section>
+
+      <section id="searchPanel" class="search-panel" hidden>
+        <label class="search-label" for="keySearch">Search keys</label>
+        <input
+          id="keySearch"
+          class="search-input"
+          type="search"
+          placeholder="Fuzzy search cookie and localStorage keys"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <p id="searchSummary" class="search-summary">0 matches</p>
+        <section id="searchResults" class="search-results"></section>
+      </section>
+
+      <section id="cookieDiagnostics" class="diagnostics" hidden></section>
+
+      <textarea
+        id="manualCopy"
+        class="manual-copy"
+        hidden
+        readonly
+        aria-label="JSON output for manual copy"
+      ></textarea>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
