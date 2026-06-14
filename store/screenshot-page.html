@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie LocalStorage Exporter Store Screenshot</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: #0d1117;
+        color: #eef4fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(51, 87, 146, 0.4), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(20, 87, 62, 0.26), transparent 32%),
+          #0d1117;
+      }
+
+      .canvas {
+        width: 1280px;
+        height: 800px;
+        margin: 0 auto;
+        padding: 64px 72px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .copy {
+        align-self: start;
+        padding-top: 36px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: #8ea1b6;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      h1 {
+        margin: 16px 0 0;
+        font-size: 56px;
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        margin: 20px 0 0;
+        max-width: 520px;
+        color: #b6c3d3;
+        font-size: 22px;
+        line-height: 1.5;
+      }
+
+      .list {
+        display: grid;
+        gap: 14px;
+        margin: 34px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .list li {
+        color: #d6e2ef;
+        font-size: 18px;
+        line-height: 1.45;
+      }
+
+      .list span {
+        color: #6cb1ff;
+      }
+
+      .shot {
+        justify-self: end;
+        width: 460px;
+        padding: 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+      }
+
+      .panel {
+        padding: 0;
+        color-scheme: dark;
+        font-family: "Segoe UI", "SFMono-Regular", Consolas, monospace;
+      }
+
+      .site-card {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .site-favicon {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        color: #111318;
+        background: linear-gradient(180deg, #ffd98d 0%, #f0b64d 100%);
+        flex: 0 0 auto;
+      }
+
+      .site-meta {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .panel .eyebrow,
+      .site-host,
+      .intro-line,
+      .summary-label,
+      .search-label,
+      .search-summary,
+      .result-meta,
+      .result-preview {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #97a1af;
+      }
+
+      .site-title {
+        margin: 4px 0;
+        font-size: 15px;
+        line-height: 1.35;
+        font-weight: 600;
+        color: #f4f7fb;
+      }
+
+      .intro {
+        margin-top: 14px;
+      }
+
+      .muted {
+        margin-top: 4px;
+      }
+
+      .status {
+        margin-top: 14px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(89, 176, 137, 0.26);
+        font-size: 12px;
+        line-height: 1.5;
+        background: rgba(39, 102, 76, 0.24);
+        color: #d8fae9;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .button,
+      .mini-button {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: #edf2f8;
+        border-radius: 8px;
+      }
+
+      .button {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .button-primary {
+        background: linear-gradient(180deg, #3b82f6 0%, #215ec6 100%);
+        border-color: rgba(124, 174, 255, 0.48);
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .summary-item,
+      .search-panel,
+      .result-item {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .summary-item {
+        padding: 12px;
+      }
+
+      .summary-value {
+        display: block;
+        margin-top: 8px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1;
+        color: #f8fbff;
+      }
+
+      .search-panel {
+        margin-top: 14px;
+        padding: 12px;
+      }
+
+      .search-input {
+        width: 100%;
+        margin-top: 8px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(5, 8, 12, 0.85);
+        color: #edf3fb;
+        font-size: 12px;
+      }
+
+      .search-summary {
+        margin-top: 8px;
+      }
+
+      .search-results {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .result-item {
+        padding: 10px 12px;
+      }
+
+      .result-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .result-key {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.45;
+        color: #f4f7fb;
+      }
+
+      .result-preview {
+        margin-top: 6px;
+      }
+
+      .result-actions {
+        display: flex;
+        gap: 6px;
+      }
+
+      .mini-button {
+        padding: 6px 8px;
+        font-size: 11px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas">
+      <section class="copy">
+        <p class="eyebrow">Developer tools extension</p>
+        <h1>Copy cookies and localStorage as JSON</h1>
+        <p class="lede">Built for quick debugging on the active tab, with fuzzy key search and one-click copy for keys or values.</p>
+        <ul class="list">
+          <li><span>Reads</span> cookies and localStorage from the current http(s) page</li>
+          <li><span>Searches</span> all captured keys with fuzzy matching</li>
+          <li><span>Copies</span> full session JSON, a single key, or a single value</li>
+          <li><span>Stays local</span> with no upload, sync, or history storage</li>
+        </ul>
+      </section>
+
+      <section class="shot">
+        <main class="panel">
+          <header class="site-card">
+            <div class="site-favicon">B</div>
+            <div class="site-meta">
+              <p class="eyebrow">Active tab</p>
+              <h2 class="site-title">Bilibili</h2>
+              <p class="site-host">www.bilibili.com</p>
+            </div>
+          </header>
+
+          <section class="intro">
+            <p class="intro-line">Only reads the active tab after you click.</p>
+            <p class="intro-line muted">Read this site to capture Cookies and localStorage keys, then Copy session JSON.</p>
+          </section>
+
+          <section class="status">Capture complete for https://www.bilibili.com.</section>
+
+          <section class="actions">
+            <button class="button" type="button">Retry</button>
+            <button class="button button-primary" type="button">Copy session JSON</button>
+          </section>
+
+          <section class="summary">
+            <div class="summary-item">
+              <span class="summary-label">Cookies</span>
+              <span class="summary-value">23</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">localStorage keys</span>
+              <span class="summary-value">17</span>
+            </div>
+          </section>
+
+          <section class="search-panel">
+            <label class="search-label" for="previewSearch">Search keys</label>
+            <input id="previewSearch" class="search-input" type="search" value="sid" readonly>
+            <p class="search-summary">2 matches / 40 keys</p>
+            <section class="search-results">
+              <div class="result-item">
+                <div class="result-top">
+                  <p class="result-key">sid</p>
+                  <div class="result-actions">
+                    <button class="mini-button" type="button">Copy key</button>
+                    <button class="mini-button" type="button">Copy value</button>
+                  </div>
+                </div>
+                <p class="result-meta">cookie | .bilibili.com | /</p>
+                <p class="result-preview">Value: 7h3j2d0_example_sid_value_preview...</p>
+              </div>
+              <div class="result-item">
+                <div class="result-top">
+                  <p class="result-key">sid</p>
+                  <div class="result-actions">
+                    <button class="mini-button" type="button">Copy key</button>
+                    <button class="mini-button" type="button">Copy value</button>
+                  </div>
+                </div>
+                <p class="result-meta">cookie | www.bilibili.com | /</p>
+                <p class="result-preview">Value: host_only_sid_preview_value...</p>
+              </div>
+            </section>
+          </section>
+        </main>
+      </section>
+    </main>
+  </body>
+</html>
