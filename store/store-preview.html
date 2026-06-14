@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie LocalStorage Exporter Preview</title>
+    <link rel="stylesheet" href="../popup.css">
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 32px;
+        background:
+          radial-gradient(circle at top, rgba(63, 96, 140, 0.24), transparent 38%),
+          #0d1015;
+      }
+
+      .frame {
+        width: 420px;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+      }
+
+      .panel {
+        padding: 0;
+      }
+
+      .site-favicon {
+        display: grid !important;
+        place-items: center;
+        font-size: 11px;
+        color: #111318;
+        background: linear-gradient(180deg, #ffd98d 0%, #f0b64d 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <main class="panel">
+        <header class="site-card">
+          <div class="site-favicon">B</div>
+          <div class="site-meta">
+            <p class="eyebrow">Active tab</p>
+            <h1 class="site-title">Bilibili</h1>
+            <p class="site-host">www.bilibili.com</p>
+          </div>
+        </header>
+
+        <section class="intro">
+          <p class="intro-line">Only reads the active tab after you click.</p>
+          <p class="intro-line muted">Read this site to capture Cookies and localStorage keys, then Copy session JSON.</p>
+        </section>
+
+        <section class="status success" role="status">
+          Capture complete for https://www.bilibili.com.
+        </section>
+
+        <section class="actions">
+          <button class="button" type="button">Retry</button>
+          <button class="button button-primary" type="button">Copy session JSON</button>
+        </section>
+
+        <section class="summary">
+          <div class="summary-item">
+            <span class="summary-label">Cookies</span>
+            <span class="summary-value">23</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">localStorage keys</span>
+            <span class="summary-value">17</span>
+          </div>
+        </section>
+
+        <section class="search-panel">
+          <label class="search-label" for="previewSearch">Search keys</label>
+          <input id="previewSearch" class="search-input" type="search" value="sid" readonly>
+          <p class="search-summary">2 matches / 40 keys</p>
+          <section class="search-results">
+            <div class="result-item">
+              <div class="result-top">
+                <p class="result-key">sid</p>
+                <div class="result-actions">
+                  <button class="mini-button" type="button">Copy key</button>
+                  <button class="mini-button" type="button">Copy value</button>
+                </div>
+              </div>
+              <p class="result-meta">cookie | .bilibili.com | /</p>
+              <p class="result-preview">Value: 7h3j2d0_example_sid_value_preview...</p>
+            </div>
+            <div class="result-item">
+              <div class="result-top">
+                <p class="result-key">sid</p>
+                <div class="result-actions">
+                  <button class="mini-button" type="button">Copy key</button>
+                  <button class="mini-button" type="button">Copy value</button>
+                </div>
+              </div>
+              <p class="result-meta">cookie | www.bilibili.com | /</p>
+              <p class="result-preview">Value: host_only_sid_preview_value...</p>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
