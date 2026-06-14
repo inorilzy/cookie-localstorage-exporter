@@ -1,5 +1,7 @@
 # Cookie LocalStorage Exporter
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Cookie LocalStorage Exporter is a minimal Manifest V3 extension for Chrome and Edge. It reads cookies and `localStorage` from the active `http(s)` tab after you click the popup, then copies the captured payload as formatted JSON.
 
 ## What it does
