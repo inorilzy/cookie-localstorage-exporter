@@ -67,6 +67,8 @@ Cookie LocalStorage Exporter 是一个面向 Chrome 和 Edge 的极简 Manifest 
 4. 选择当前仓库目录：`C:\Users\zhiyu_liu\Documents\cookie-localstorage-exporter`
 5. 打开任意 `http(s)` 页面，然后点击扩展图标。
 
+## 感谢 Linux.do 社区，本项目在开发与调试过程中受益于社区内众多开发者分享的技术思路与讨论氛围。
+
 ## 敏感数据提醒
 
 Cookies 和 `localStorage` 里经常会包含登录态、账号标识、令牌和页面状态。请把导出的 JSON 当作敏感数据处理，不要随意粘贴到聊天工具、工单系统或日志里，除非你明确打算暴露这些内容。
